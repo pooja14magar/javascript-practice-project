@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Tabs</title>
+</head>
+<style>
+    *{
+        box-sizing: border-box;
+    }
+    body{
+        background-color: #e7e7e7;
+    }
+    .tab{
+        width: 500px;
+        overflow: hidden;
+    
+    }
+    .tab button{
+        background-color: #90caf8;
+        border: none;
+        outline: none;
+        padding: 10px 15px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+    .tab button:hover{
+        background-color: #74aedd;
+    }
+    .tab button.active {
+  background-color: #fff;
+}
+    .tabcontent{
+        background: #fff;
+        width: 500px;
+        padding: 12px;
+        font-family: Arial;
+        line-height: 21px;
+        display: none;
+    }
+</style>
+<body>
+    <div class="tab">
+        <button class="tablink" data-tab="tab1">Tab 1</button>
+        <button class="tablink" data-tab="tab2">Tab 2</button>
+        <button class="tablink" data-tab="tab3">Tab 3</button>
+    </div>
+    <div id="tab1" class="tabcontent">
+    <h1>tab 1</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab esse exercitationem hic blanditiis dolore minus
+        expedita, harum recusandae laudantium natus ex optio non maiores dolores quaerat magni rem obcaecati ratione.
+    </p>
+</div>
+<div id="tab2" class="tabcontent">
+    <h1>tab 2</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab esse exercitationem hic blanditiis dolore minus
+        expedita, harum recusandae laudantium natus ex optio non maiores dolores quaerat magni rem obcaecati ratione.
+    </p>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Exercitationem quisquam id magnam. Tempora dolores libero porro laudantium, ad autem suscipit!</p>
+</div>
+<div id="tab3" class="tabcontent">
+    <h1>tab 3</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab esse exercitationem hic blanditiis dolore minus
+        expedita, harum recusandae laudantium natus ex optio non maiores dolores quaerat magni rem obcaecati ratione.
+    </p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, deleniti?</p>
+</div>
+
+
+
+    <script>
+    const tabButtons = document.querySelectorAll('.tablink');
+
+            for(var i=0; i < tabButtons.length; i++){
+    tabButtons[i].addEventListener('click',function(){
+        var tabName = this.dataset.tab;
+        var tabContent =document.getElementById(tabName);
+
+
+var allTabContent= document.querySelectorAll('.tabcontent');
+var allTabButtons= document.querySelectorAll('.tablink');
+
+    
+for(var j= 0; j< allTabContent.length; j++){
+    allTabContent[j].style.display='none';
+}
+
+    
+for(var k= 0; k< allTabButtons.length; k++){
+    allTabButtons[k].classList.remove('active');
+}
+
+
+
+        tabContent.style.display = "block";
+      this.classlist.add('active');
+    });
+}
+document.querySelector('.tablink').click();
+    </script>
+</body>
+
+</html>
